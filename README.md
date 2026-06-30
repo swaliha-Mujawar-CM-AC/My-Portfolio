@@ -1,6 +1,7 @@
 # My-Portfolio
 Personal portfolio built with modern web technologies to showcase projects, skills, and experience.
 
+
 This repository, `swaliha-Mujawar-CM-AC/My-Portfolio`, contains the source code for a professional personal portfolio website. It is designed to showcase the developer's technical skills, educational background, certifications, and professional experience. The project combines a responsive frontend with a functional backend service for handling user inquiries.
 
 ## 1. What is this repo?
@@ -23,6 +24,20 @@ The architecture follows a classic Client-Server model. The frontend is a single
 4.  **Backend Processing**: The Express server in `My-Portfolio-master/My-Portfolio-main/backend/server.js` receives the JSON payload. It validates the input and uses the `mysql` driver to execute an `INSERT` query.
 5.  **Data Persistence**: The data is stored in a MySQL database named `portfolio_db`, as configured in `My-Portfolio-master/My-Portfolio-main/backend/db.js`.
 
+```mermaid
+graph TD
+    User["User Browser"] -->|"Views/Interacts"| Frontend["Frontend (HTML/CSS/JS)"]
+    Frontend -->|"Styles/Animations"| CSS["style.css / AOS Lib"]
+    Frontend -->|"POST /api/contact_form"| API["Express Server (server.js)"]
+    
+    subgraph "Backend Environment"
+        API -->|"Uses"| Env[".env Config"]
+        API -->|"Executes Query"| DB_Logic["db.js (MySQL Connection)"]
+        DB_Logic -->|"Stores Data"| MySQL[("MySQL Database")]
+    end
+
+    Frontend -->|"Downloads"| Docs["PDF Certificates / Resume"]
+```
 
 ## 3. Repository Structure
 
